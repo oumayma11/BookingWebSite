@@ -8,7 +8,13 @@ export default class Navbar extends Component {
   };
   handleToggle = () => {
     this.setState({ isOpen: !this.state.isOpen });
-  };
+    };
+    logOut(e) {
+        e.preventDefault()
+        localStorage.removeItem('usertoken')
+        this.props.history.push('/');
+
+    };
   render() {
     return (
       <nav className="navbar">
@@ -37,6 +43,10 @@ export default class Navbar extends Component {
                     <li>
                         <Link to="/login">Login</Link>
                     </li>
+
+                   
+                  
+
           </ul>
         </div>
       </nav>

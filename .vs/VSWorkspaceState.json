@@ -3,8 +3,12 @@
     "",
     "\\config",
     "\\models",
+    "\\resort",
+    "\\resort\\public",
+    "\\resort\\src",
+    "\\resort\\src\\components",
+    "\\resort\\src\\pages",
     "\\Routes"
   ],
-  "SelectedNode": "\\package.json",
   "PreviewInSolutionExplorer": false
 }
