@@ -6,16 +6,40 @@ import Banner from "../components/Banner";
 
 class Profile extends Component {
 
+    constructor() {
+        super()
+        this.state = {
+            firstName: '',
+            lastName: '',
+            email: '',
+        }
+
+
+    }
+
    
     componentDidMount() {
         const token = localStorage.usertoken
         const decoded = jwt_decode(token)
+        console.log("heloooooooooooooooo"+token)
+    
         this.setState({
             firstName: decoded.firstName,
             lastName: decoded.lastName,
             email: decoded.email
         })
     }
+
+  
+
+       
+
+
+
+    
+
+   
+
 
     render() {
         return (

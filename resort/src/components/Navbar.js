@@ -43,6 +43,12 @@ export default class Navbar extends Component {
                     <li>
                         <Link to="/login">Login</Link>
                     </li>
+                    <li>
+                        <Link to="/profile">Profile</Link>
+                    </li>
+                    <li>
+                        <Link onClick={(e) => this.logOut(e)}>Logout</Link>
+                    </li>
 
                    
                   

@@ -106,10 +106,15 @@ router.post('/login', (req, res) => {
             if (client) {
                 if (req.body.password== client.password) {
                    let  token = jwt.sign(client.dataValues, process.env.SECRET_KEY, {
-                        expiresIn: 1440
-                    })
+                       expiresIn: 1440,
+
+                   }
+)
+
                     res.send(token)
+
                 }
+                
             } else {
                 res.status(400).json({ error: 'User does not exist' })
             }
@@ -122,6 +127,7 @@ router.post('/login', (req, res) => {
 
 //decoding token
 router.get('/profile', (req, res) => {
+
     var decoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY)
 
     db.Client.findOne({

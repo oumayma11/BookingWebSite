@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import Hero from "../components/Hero";
 
-import Banner from "../components/Banner";
 
 
 
@@ -30,7 +28,7 @@ class Registrate extends Component {
 
                 "x-rapidapi-host": "fairestdb.p.rapidapi.com",
                 "accept": "application/json",
-                      "Content-Type": "application/json",
+                "Content-Type": "application/json",
 
             },
            
@@ -47,6 +45,7 @@ class Registrate extends Component {
             .then(response => response.text())
             .then(response => {
                 console.log(response)
+                alert(this.state.email +"" +"has been added successfully")
             })
             .catch(err => {
                 console.log(err);
@@ -60,7 +59,12 @@ class Registrate extends Component {
     }
 
     render() {
+
+       
+          
         return (
+
+
             <div className="container">
                 <div className="row">
                     <div className="col-md-6 mt-5 mx-auto">
@@ -127,6 +131,13 @@ class Registrate extends Component {
                        
         );
     };
+
+
+   
+
+
 }
+
+
 
 export default Registrate;

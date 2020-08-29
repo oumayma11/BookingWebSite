@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Hero from "../components/Hero";
-import { login } from '../components/ClientFunction'
 
 import Banner from "../components/Banner";
 
@@ -12,34 +11,60 @@ class Login extends Component {
             password:''
         }
 
-        this.onChange = this.onChange.bind(this)
-        this.onSubmit = this.onSubmit.bind(this)
+        this.create = this.create.bind(this);
+        this.handleChange = this.handleChange.bind(this);
 
 
 
     }
 
-    onChange(e) {
-        this.setState({ [e.target.name]: e.target.value })
-    }
-    onSubmit(e) {
-        e.preventDefault()
+    create(e) {
+        // add entity - POST
+        e.preventDefault();
+        fetch("/api/login", {
+            "method": "POST",
+            "headers": {
 
-        const user = {
-            email: this.state.email,
-            password: this.state.password
-        }
+                "x-rapidapi-host": "fairestdb.p.rapidapi.com",
+                "accept": "application/json",
+                "Content-Type": "application/json",
 
-        login(user).then(res => {
-            if (res) {
-                this.props.history.push('/profile')
-            }
+            },
+
+            "body": JSON.stringify({
+                email: this.state.email,
+                password: this.state.password,
+
+            })
+
         })
+            .then(response => response.text())
+            .then(response => {
+                console.log(response)
+                localStorage.setItem('usertoken', response)
+                this.props.history.push('/profile')
 
+
+
+
+
+
+            }
+        )
+                   
+
+               
+            
+            .catch(err => {
+                console.log(err);
+            });
     }
+   
 
 
-
+    handleChange(changeObject) {
+        this.setState(changeObject)
+    }
 
     render () {
         return (
@@ -55,12 +80,16 @@ class Login extends Component {
 
                             <tr><td>
                                 <label>Email address</label>
-                                <input type="email" className="form-control" placeholder="Enter email" />
+                                        <input type="email" className="form-control" placeholder="Enter email"
+                                            value={this.state.email}
+                                            onChange={(e) => this.handleChange({ email: e.target.value })}/>
                             </td></tr>
 
                             <tr><td>
                                 <label>Password</label>
-                                <input type="password" className="form-control" placeholder="Enter password" />
+                                        <input type="password" className="form-control" placeholder="Enter password"
+                                            value={this.state.password}
+                                            onChange={(e) => this.handleChange({ password: e.target.value })} />
                             </td></tr>
 
                             <tr><td>
@@ -68,7 +97,8 @@ class Login extends Component {
                                 <label className="custom-control-label" htmlFor="customCheck1">Remember me</label>
                             </td></tr>
                             <tr><td>
-                                <button type="submit" className="btn btn-primary btn-block">Submit</button></td></tr>
+                                        <button type="submit" className="btn btn-primary btn-block"
+                                            onClick={(e) => this.create(e)}>Submit</button></td></tr>
                            
                             <a href="http://localhost:3000/registrate"><p className="forgot-password text-right">create an account</p></a>
 
