@@ -8,6 +8,8 @@ import Registrate from "./pages/Registrate";
 import Profile from "./pages/Profile";
 
 import Rooms from "./pages/Rooms";
+import Verify from "./pages/Verify";
+
 import SingleRoom from "./pages/SingleRoom";
 import Error from "./pages/Error";
  
@@ -22,6 +24,8 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home} />
               <Route exact path="/rooms/" component={Rooms} />
+              <Route exact path="/verify/" component={Verify} />
+
               <Route exact path="/registrate/" component={Registrate} />
               <Route exact path="/profile/" component={Profile} />
 

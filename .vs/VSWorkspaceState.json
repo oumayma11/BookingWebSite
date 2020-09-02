@@ -7,9 +7,10 @@
     "\\resort\\public",
     "\\resort\\src",
     "\\resort\\src\\components",
+    "\\resort\\src\\config",
     "\\resort\\src\\pages",
     "\\Routes"
   ],
-  "SelectedNode": "\\package.json",
+  "SelectedNode": "\\models\\client.js",
   "PreviewInSolutionExplorer": false
 }

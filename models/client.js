@@ -29,7 +29,8 @@ module.exports = (sequelize, DataTypes) => {
         birthDate: {
             type: DataTypes.DATE,
             allowNull: false
-        }
+        },
+        
        
     });
 

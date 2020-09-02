@@ -4,6 +4,8 @@ import Hero from "../components/Hero";
 import Services from "../components/Services";
 
 import Banner from "../components/Banner";
+import FeaturedRooms from "../components/FeaturedRooms";
+
 const home = () => {
     return (
         <>
@@ -18,6 +20,7 @@ const home = () => {
                 </Banner>
             </Hero>
             <Services />
+            <FeaturedRooms />
 
         </>
     );

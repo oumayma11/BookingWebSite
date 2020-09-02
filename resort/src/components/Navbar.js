@@ -12,7 +12,7 @@ export default class Navbar extends Component {
     logOut(e) {
         e.preventDefault()
         localStorage.removeItem('usertoken')
-        this.props.history.push('/');
+        this.props.history.push('/login');
 
     };
   render() {
